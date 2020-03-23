@@ -9,6 +9,18 @@ import {
 } from "reactstrap";
 
 class CampsiteInfo extends Component {
+  renderComments(comments) {
+    if (comments) {
+      return (
+        <div className="md-5 m-1">
+          <h4>Comments</h4>
+          {comments.map(comment => comment.text)}
+          {comments.map(comment => comment.author)}
+        </div>
+      );
+    }
+    return <div></div>;
+  }
   renderCampsite(campsite) {
     return (
       <div className="col-md-5 m-1">
@@ -26,7 +38,12 @@ class CampsiteInfo extends Component {
   render() {
     if (this.props.campsite) {
       return (
-        <div className="row">{this.renderCampsite(this.props.campsite)}</div>
+        <div>
+          <div className="row">{this.renderCampsite(this.props.campsite)}</div>
+          <div className="row" key="comments.id">
+            {this.renderComments(this.props.campsite.comments)}
+          </div>
+        </div>
       );
     } else {
       return <div></div>;
