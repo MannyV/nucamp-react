@@ -10,16 +10,29 @@ import {
 
 class CampsiteInfo extends Component {
   renderComments(comments) {
-    if (comments) {
+    console.log(comments);
+    if (comments)
       return (
-        <div className="md-5 m-1">
+        <div className="col-md-5 m-1">
+          {" "}
           <h4>Comments</h4>
-          {comments.map(comment => comment.text)}
-          {comments.map(comment => comment.author)}
+          {comments.map(comment => {
+            return (
+              <div key={comments.id}>
+                <p>{comment.text}</p>
+                <p>
+                  {comment.author},{" "}
+                  {new Intl.DateTimeFormat("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit"
+                  }).format(new Date(Date.parse(comment.date)))}
+                </p>
+              </div>
+            );
+          })}
         </div>
       );
-    }
-    return <div></div>;
   }
   renderCampsite(campsite) {
     return (
