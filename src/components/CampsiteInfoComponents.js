@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Card,
   CardImg,
@@ -6,7 +6,7 @@ import {
   CardText,
   CardBody,
   CardTitle
-} from "reactstrap";
+} from "reactstrap"
 
 function RenderCampsite({ campsite }) {
   return (
@@ -19,11 +19,11 @@ function RenderCampsite({ campsite }) {
         </CardBody>
       </Card>
     </div>
-  );
+  )
 }
 
 function RenderComments({ comments }) {
-  console.log(comments);
+  console.log(comments)
   if (comments)
     return (
       <div className="col-md-5 m-1">
@@ -42,10 +42,10 @@ function RenderComments({ comments }) {
                 }).format(new Date(Date.parse(comment.date)))}
               </p>
             </div>
-          );
+          )
         })}
       </div>
-    );
+    )
 }
 
 function CampsiteInfo(props) {
@@ -55,14 +55,14 @@ function CampsiteInfo(props) {
         <div className="container">
           <div className="row">
             <RenderCampsite campsite={props.campsite} />
-            <RenderComments comments={props.campsite.comments} />
+            <RenderComments comments={props.comments} />
           </div>
         </div>
       </div>
-    );
+    )
   } else {
-    return <div />;
+    return <div />
   }
 }
 
-export default CampsiteInfo;
+export default CampsiteInfo
