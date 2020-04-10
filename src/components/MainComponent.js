@@ -8,7 +8,7 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import CampsiteInfo from "./CampsiteInfoComponents"
 import Contact from "./ContactComponent"
-import { addComment, fetchCampsites } from '../redux/ActionCreators';
+import { addComment, fetchCampsites } from '../redux/ActionCreators'
 
 const mapStateToProps = state => {
   return {
@@ -25,10 +25,11 @@ const mapDispatchToProps = {
 }
 
 class Main extends Component {
+  
   componentDidMount() {
     this.props.fetchCampsites();
-}
-
+  }
+  
   render() {
     const HomePage = () => {
       return (

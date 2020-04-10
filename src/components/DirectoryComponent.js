@@ -10,8 +10,6 @@ import {
 import { Link } from "react-router-dom"
 import { Loading } from './LoadingComponent';
 
-
-
 function RenderDirectoryItem({ campsite }) {
   return (
     <Card>
@@ -33,7 +31,6 @@ function Directory(props) {
       </div>
     )
   })
-  
   if (props.campsites.isLoading) {
     return (
         <div className="container">
