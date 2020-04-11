@@ -2,11 +2,9 @@ import React, { Component } from "react"
 import {
   Card,
   CardImg,
-  CardImgOverlay,
   CardText,
   CardBody,
-  CardTitle,
-  Button, Label, Col, Row, Modal, ModalHeader, ModalBody, Form, FormGroup, Input,
+  Button, Label, Col, Row, Modal, ModalHeader, ModalBody,
   Breadcrumb,
   BreadcrumbItem
 } from "reactstrap"
