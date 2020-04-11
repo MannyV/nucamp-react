@@ -9,6 +9,8 @@ import {
 } from "reactstrap"
 import { Link } from "react-router-dom"
 import { Loading } from './LoadingComponent'
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import { baseUrl } from '../shared/baseUrl';
 
 function About(props) {
 /*    const partners = props.partners.map(partner => {
@@ -98,7 +100,7 @@ function RenderPartner({ partner }) {
   if (partner) {
     return (
       <>
-        <Media object src={partner.image} alt={partner.name} width="150" />
+        <Media object src={baseUrl + partner.image} alt={partner.name} width="150" />
         <Media body className="ml-5 mb-4">
           <Media heading>{partner.name}</Media>
           {partner.description}
@@ -112,11 +114,14 @@ function RenderPartner({ partner }) {
 
 function PartnerList(props) {
   //console.log('props', props)
+  
   const partners = props.partners.partners.map(partner => {
     return (
-      <Media tag="li" key={partner.id}>
-        <RenderPartner partner={partner} />
-      </Media>
+      <Fade in key={partner.id}>
+        <Media tag="li">
+          <RenderPartner partner={partner} />
+        </Media>
+      </Fade>
     )
   })
 
@@ -132,11 +137,15 @@ function PartnerList(props) {
   }
 
   return (
-  <div className='col mt-4'>
-    <Media tag="li">
-      {partners}
-    </Media>
-  </div>
+  
+    <div className='col mt-4'>
+      <Media tag="li">
+        <Stagger in>
+          {partners}
+        </Stagger>
+      </Media>
+    </div>
+  
   )
 }
 
